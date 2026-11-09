@@ -4,9 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Himaja & Deva Chandrahas</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <meta property="og:title" content="Himaja &amp; Deva Chandrahas — Wedding Invitation">
-<meta property="og:description" content="Sunday, 13 December 2026 · Muhurtham 8:15 AM · M.Y.R. Kalyana Mandapam">
+<meta property="og:description" content="Sunday, 13 December 2026 · Muhurtham 8:15 AM · M.Y.R. Kalyana Mandapam, Anantapur">
 <meta property="og:image" content="https://himajawedsdeva.github.io/invite-poster.jpg">
 <meta property="og:url" content="https://himajawedsdeva.github.io/">
 <meta property="og:type" content="website">
@@ -224,6 +223,29 @@ h2.script {
 .film-frame video { display: block; width: 100%; height: 100%; border-radius: 12px; background: var(--emerald-deep); object-fit: cover; }
 .film-note { font-style: italic; color: #6b5330; margin: 16px 0 0; font-size: 17px; }
 .foot { padding-bottom: 96px; }
+/* Ganesha on the envelope flap (flips away with it) */
+.env .flap .ganesh {
+  position: absolute; left: 50%; top: 6%; width: 17%; height: auto; margin-left: -8.5%;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.6));
+}
+/* శ్రీరస్తు / శుభమస్తు hang beneath the mango leaves, one each side */
+.thor-wrap { position: relative; z-index: 2; }
+.bless {
+  position: absolute; top: 73%; margin: 0;
+  font-family: var(--font-telugu); font-weight: 600; font-size: clamp(15px, 4.4vw, 19px);
+  color: var(--gold-hi); text-shadow: 0 1px 6px rgba(0,0,0,.45);
+}
+.bless.left { left: 7%; }
+.bless.right { right: 7%; }
+/* Shiva & Parvati hands at the foot of the invitation */
+.invite { padding-bottom: 0; }
+.hands {
+  display: block; width: calc(100% + 48px); max-width: none; margin: 10px -24px 0; height: auto;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 38%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 38%, #000 88%, transparent 100%);
+}
 .foot .tel-big { font-family: var(--font-telugu); font-size: 22px; color: var(--gold-hi); margin: 0; }
 .foot .sign { font-family: var(--font-script); font-size: 44px; color: var(--gold-hi); margin: 10px 0 0; line-height: 1.1; }
 .foot .tag { font-family: var(--font-display); font-size: 12px; letter-spacing: .3em; color: var(--gold); margin-top: 16px; }
@@ -352,7 +374,7 @@ h2.script {
   <p class="env-kicker">॥ శ్రీరస్తు &nbsp; శుభమస్తు &nbsp; అవిఘ్నమస్తు ॥</p>
   <div class="env">
     <div class="back"></div>
-    <div class="letter"><p>Himaja &amp; Deva</p><small>13 · XII · 2026</small></div>
+    <div class="letter"><p>Himaja &amp; Deva</p><small>13 December 2026</small></div>
     <div class="front"></div>
     <svg class="front-edge" viewBox="0 0 360 250" preserveAspectRatio="none" aria-hidden="true">
       <rect x="1" y="1" width="358" height="248" rx="4" fill="none" stroke="#c9a14a" stroke-width="1.5"/>
@@ -364,6 +386,7 @@ h2.script {
         <path d="M6 4 L180 140 L354 4" fill="none" stroke="#c9a14a" stroke-width="1.5"/>
         <path d="M24 4 L180 126 L336 4" fill="none" stroke="#c9a14a" stroke-width=".8" stroke-dasharray="1 4" stroke-linecap="round"/>
       </svg></div>
+      <img class="ganesh" src="ganesh.png" alt="Lord Ganesha">
       <div class="inside"></div>
     </div>
     <button class="seal" id="seal" aria-label="Open the invitation">
@@ -384,7 +407,11 @@ h2.script {
 <main class="wrap">
   <!-- ============ HERO ============ -->
   <section class="band silk hero" aria-label="Wedding of Himaja Reddy and Deva Chandrahas Reddy">
-    <svg class="thoranam" id="thoranam" viewBox="0 0 400 120" aria-hidden="true"></svg>
+    <div class="thor-wrap">
+      <svg class="thoranam" id="thoranam" viewBox="0 0 400 120" aria-hidden="true"></svg>
+      <p class="bless left">శ్రీరస్తు</p>
+      <p class="bless right">శుభమస్తు</p>
+    </div>
     <div class="arch-box">
       <svg viewBox="0 0 400 600" aria-hidden="true" id="archSvg">
         <defs>
@@ -401,7 +428,6 @@ h2.script {
         <g id="diyas"></g>
       </svg>
       <div class="arch-text">
-        <p class="srirastu">॥ శ్రీరస్తు · శుభమస్తు ॥</p>
         <p class="subvah">శుభ వివాహం</p>
         <p class="lead">Together with our families</p>
         <h1 class="names">
@@ -423,6 +449,7 @@ h2.script {
     <div class="rule"><svg viewBox="-10 -10 20 20" aria-hidden="true"><path d="M0 -8 L2.5 -2.5 L8 0 L2.5 2.5 L0 8 L-2.5 2.5 L-8 0 L-2.5 -2.5Z" fill="currentColor"/></svg></div>
     <p class="body rise">Mango leaves at the door, jasmine in the hair, and everyone we love under one mandapam. We would be honoured to have you with us as we take our seven steps together.</p>
     <p class="blessing rise">With the blessings of our elders and the love of both families.</p>
+    <img class="hands" src="hands.jpg" alt="Shiva and Parvati holding hands, framed by jasmine and the trishul">
   </section>
 
   <!-- ============ SAVE THE DATE (scratch) ============ -->
@@ -442,7 +469,7 @@ h2.script {
       <canvas id="scratch" aria-label="Scratch the gold foil to reveal the date"></canvas>
       <svg class="frame" id="revealSvg" viewBox="0 0 340 460" aria-hidden="true"></svg>
     </div>
-    <p class="scratch-note" id="scratchNote">Rub the gold foil with your finger</p>
+    <p class="scratch-note" id="scratchNote">One swipe across the gold foil</p>
   </section>
 
   <!-- ============ COUNTDOWN ============ -->
@@ -460,7 +487,7 @@ h2.script {
       <div class="grid" id="calGrid"></div>
     </div>
     <div class="btns">
-      <a class="btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Wedding%20of%20Himaja%20Reddy%20%26%20Deva%20Chandrahas%20Reddy&amp;dates=20261213T024500Z/20261213T063000Z&amp;details=Venue%3A%20M.Y.R.%20Kalyana%20Mandapam%20-%20https%3A%2F%2Fshare.google%2F9oNCyJXpNTgBjbNVr&amp;location=M.Y.R.%20Kalyana%20Mandapam">Add to Google Calendar</a>
+      <a class="btn" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Wedding%20of%20Himaja%20Reddy%20%26%20Deva%20Chandrahas%20Reddy&amp;dates=20261213T024500Z/20261213T063000Z&amp;details=Venue%3A%20M.Y.R.%20Kalyana%20Mandapam%2C%20Anantapur%20-%20https%3A%2F%2Fshare.google%2F9oNCyJXpNTgBjbNVr&amp;location=M.Y.R.%20Kalyana%20Mandapam%2C%20Anantapur">Add to Google Calendar</a>
     </div>
   </section>
 
@@ -470,7 +497,7 @@ h2.script {
     <h2 class="script">Kalyanam</h2>
     <div class="card">
       <div class="row"><span class="k">When</span><span class="v">Sunday, 13 December 2026<small>Muhurtham at 8:15 AM</small></span></div>
-      <div class="row"><span class="k">Where</span><span class="v">M.Y.R. Kalyana Mandapam<small>Tap below for directions</small></span></div>
+      <div class="row"><span class="k">Where</span><span class="v">M.Y.R. Kalyana Mandapam, Anantapur<small>Tap below for directions</small></span></div>
     </div>
     <div class="btns">
       <a class="btn" target="_blank" rel="noopener" href="https://share.google/9oNCyJXpNTgBjbNVr">Open in Google Maps</a>
@@ -485,7 +512,6 @@ h2.script {
     <div class="film-frame">
       <video id="film" src="invite.mp4" poster="invite-poster.jpg" controls playsinline preload="metadata"></video>
     </div>
-    <p class="film-note">Forward it on WhatsApp or post it to your status.</p>
   </section>
 
   <!-- ============ FOOTER ============ -->
@@ -720,84 +746,27 @@ h2.script {
     }
   }
 
-  // ---------- music: veena-like plucks in raga Mohanam over a tanpura drone ----------
-  let ac = null, playing = false, master, timer, nextT = 0, step = 0;
-  const SA = 261.63 * Math.pow(2, 1 / 12); // C#
-  const DEG = { S: 0, R: 2, G: 4, P: 7, D: 9 };
-  const note = (sw, oct = 0) => SA * Math.pow(2, DEG[sw] / 12 + oct);
-  const cache = new Map();
-  function pluckBuf(freq, dur, bright) {
-    const key = freq.toFixed(2) + dur;
-    if (cache.has(key)) return cache.get(key);
-    const sr = ac.sampleRate, len = Math.floor(sr * dur), buf = ac.createBuffer(1, len, sr), d = buf.getChannelData(0);
-    const N = Math.round(sr / freq), ring = new Float32Array(N);
-    let s2 = 1234;
-    for (let i = 0; i < N; i++) { s2 = (s2 * 16807) % 2147483647; ring[i] = (s2 / 2147483647) * 2 - 1; }
-    let idx = 0, prev = 0;
-    const decay = bright;
-    for (let i = 0; i < len; i++) {
-      const cur = ring[idx], nx = ring[(idx + 1) % N];
-      const v = decay * .5 * (cur + nx);
-      ring[idx] = v; d[i] = cur * .6 + prev * .4; prev = cur;
-      idx = (idx + 1) % N;
-    }
-    cache.set(key, buf); return buf;
-  }
-  function play(freq, t, gain, dur, bright = .996, pan = 0) {
-    const src = ac.createBufferSource(); src.buffer = pluckBuf(freq, dur, bright);
-    const g = ac.createGain(); g.gain.value = gain;
-    const p = ac.createStereoPanner ? ac.createStereoPanner() : null;
-    src.connect(g); if (p) { p.pan.value = pan; g.connect(p); p.connect(master); } else g.connect(master);
-    src.start(t);
-  }
-  // melody as [swara, octave, beats]
-  const PHRASES = [
-    [["G",0,1],["P",0,1],["D",0,1],["S",1,2],["D",0,1],["P",0,2]],
-    [["G",0,1],["R",0,1],["G",0,1],["P",0,1],["G",0,2],["R",0,1],["S",0,1]],
-    [["P",0,1],["D",0,1],["S",1,1],["R",1,1],["G",1,2],["R",1,1],["S",1,1]],
-    [["D",0,1],["S",1,1],["D",0,1],["P",0,1],["G",0,1],["R",0,1],["S",0,2]],
-  ];
-  const melody = PHRASES.flat();
-  const BEAT = .42;
-  let drone = 0;
-  function schedule() {
-    while (nextT < ac.currentTime + .6) {
-      const [sw, oc, beats] = melody[step % melody.length];
-      play(note(sw, oc), nextT, .32, 2.6, .9975, .15);
-      if (beats > 1) play(note(sw, oc + 1), nextT + BEAT * .5, .08, 1.4, .996, .15); // gamaka-like grace
-      // tanpura cycle: Pa(low) Sa Sa Sa(low), one string every 2 beats
-      for (let b = 0; b < beats; b++) {
-        if (drone % 2 === 0) {
-          const k = (drone / 2) % 4;
-          const f = k === 0 ? note("P", -1) : k === 3 ? note("S", -1) : note("S", 0);
-          play(f, nextT + b * BEAT, .16, 4.5, .9992, -.2);
-        }
-        drone++;
-      }
-      nextT += beats * BEAT; step++;
-    }
+  // ---------- music: the couple's song (music.mp3), looped, faded in ----------
+  let playing = false, fadeT = null;
+  const song = new Audio("music.mp3");
+  song.loop = true; song.preload = "auto"; song.volume = 0;
+  function fadeTo(target, ms, done) {
+    clearInterval(fadeT);
+    const start = song.volume, t0 = performance.now();
+    fadeT = setInterval(() => {
+      const k = Math.min(1, (performance.now() - t0) / ms);
+      song.volume = Math.max(0, Math.min(1, start + (target - start) * k));
+      if (k >= 1) { clearInterval(fadeT); done && done(); }
+    }, 40);
   }
   function startMusic() {
-    try {
-      if (!ac) {
-        ac = new (window.AudioContext || window.webkitAudioContext)();
-        master = ac.createGain(); master.gain.value = .0001;
-        const lp = ac.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 3800;
-        const dl = ac.createDelay(); dl.delayTime.value = .33; const fb = ac.createGain(); fb.gain.value = .28;
-        master.connect(lp); lp.connect(ac.destination); lp.connect(dl); dl.connect(fb); fb.connect(dl); dl.connect(ac.destination);
-      }
-      ac.resume();
-      nextT = ac.currentTime + .1;
-      master.gain.cancelScheduledValues(ac.currentTime);
-      master.gain.setTargetAtTime(.9, ac.currentTime, .6);
-      timer = setInterval(schedule, 120); schedule();
-      playing = true; setMusicUI();
-    } catch (e) { playing = false; setMusicUI(); }
+    const p = song.play();
+    playing = true; setMusicUI(); fadeTo(.85, 1200);
+    if (p && p.catch) p.catch(() => { playing = false; setMusicUI(); });
   }
   function stopMusic() {
-    if (!ac) return;
-    master.gain.setTargetAtTime(.0001, ac.currentTime, .25);
-    clearInterval(timer); playing = false; setMusicUI();
+    playing = false; setMusicUI();
+    fadeTo(0, 400, () => song.pause());
   }
   const mBtn = document.getElementById("music");
   function setMusicUI() { mBtn.classList.toggle("on", playing); mBtn.setAttribute("aria-pressed", playing); mBtn.setAttribute("aria-label", playing ? "Pause music" : "Play music"); }
@@ -842,9 +811,9 @@ h2.script {
       ctx.save(); ctx.translate(w / 2, h * .5);
       for (let i = 0; i < 16; i++) { ctx.rotate(Math.PI / 8); ctx.beginPath(); ctx.ellipse(0, -46, 10, 26, 0, 0, 6.28); ctx.stroke(); }
       ctx.restore();
-      ctx.fillStyle = "#5b3d0e"; ctx.textAlign = "center";
-      ctx.font = `34px "Pinyon Script", cursive`; ctx.fillText("Scratch to reveal", w / 2, h * .5 + 8);
-      ctx.font = `600 11px Cinzel, serif`; ctx.fillText("✦  THE  DATE  ✦", w / 2, h * .5 + 36);
+      ctx.textAlign = "center"; ctx.lineJoin = "round";
+      ctx.font = `700 25px Cinzel, Georgia, serif`; ctx.strokeStyle = "rgba(255,248,225,.95)"; ctx.lineWidth = 5; ctx.strokeText("SCRATCH", w / 2, h * .5 - 6); ctx.fillStyle = "#d0062f"; ctx.fillText("SCRATCH", w / 2, h * .5 - 6);
+      ctx.font = `700 19px Cinzel, Georgia, serif`; ctx.strokeText("TO REVEAL THE DATE", w / 2, h * .5 + 22); ctx.fillText("TO REVEAL THE DATE", w / 2, h * .5 + 22);
     }
     function scratchAt(x, y) {
       ctx.globalCompositeOperation = "destination-out";
@@ -853,7 +822,7 @@ h2.script {
       if (last) ctx.moveTo(last.x, last.y); else ctx.moveTo(x - .1, y);
       ctx.lineTo(x, y); ctx.stroke();
       last = { x, y };
-      if (++moves % 12 === 0) check();
+      if (++moves >= 6) finish();
     }
     function check() {
       const { width: w, height: h } = cv;
