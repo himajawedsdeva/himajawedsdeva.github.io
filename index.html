@@ -223,6 +223,30 @@ h2.script {
 .film-frame video { display: block; width: 100%; height: 100%; border-radius: 12px; background: var(--emerald-deep); object-fit: cover; }
 .film-note { font-style: italic; color: #6b5330; margin: 16px 0 0; font-size: 17px; }
 .foot { padding-bottom: 96px; }
+/* faint couple photo inside the Save the Date card, revealed by the scratch */
+.reveal-inner::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: url("couple.jpg") 52% 62% / cover no-repeat; opacity: .16;
+  -webkit-mask-image: linear-gradient(180deg, transparent 5%, #000 40%, #000 75%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 5%, #000 40%, #000 75%, transparent 100%);
+}
+.reveal-inner > * { position: relative; }
+/* couple photo behind the names: sized so both stand side by side across the screen */
+.hero-photo {
+  position: absolute; z-index: 0; pointer-events: none;
+  left: 50%; top: 17%; width: 160%; aspect-ratio: 1200 / 868;
+  margin-left: -80%;
+  background: url("couple.jpg") center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 80%, transparent 100%);
+  transform-origin: 50% 60%;
+}
+.hero-photo::after { content: ""; position: absolute; inset: 0; background: var(--emerald-deep); opacity: .42; }
+.hero-photo.zoom { animation: heroZoom 9s cubic-bezier(.2,.6,.2,1) both; }
+@keyframes heroZoom { from { transform: scale(1.14); } to { transform: scale(1); } }
+.hero > .thor-wrap, .hero > .arch-box, .hero > .scroll-hint { position: relative; z-index: 1; }
+.hero .names .n { filter: drop-shadow(0 2px 8px rgba(0,0,0,.75)); }
+.hero .lead, .hero .subvah, .hero .date-chip, .hero .names .surname { text-shadow: 0 1px 8px rgba(0,0,0,.8); }
 /* Ganesha on the envelope flap (flips away with it) */
 .env .flap .ganesh {
   position: absolute; left: 50%; top: 6%; width: 17%; height: auto; margin-left: -8.5%;
@@ -407,6 +431,7 @@ h2.script {
 <main class="wrap">
   <!-- ============ HERO ============ -->
   <section class="band silk hero" aria-label="Wedding of Himaja Reddy and Deva Chandrahas Reddy">
+    <div class="hero-photo" id="heroPhoto" aria-hidden="true"></div>
     <div class="thor-wrap">
       <svg class="thoranam" id="thoranam" viewBox="0 0 400 120" aria-hidden="true"></svg>
       <p class="bless left">శ్రీరస్తు</p>
@@ -419,7 +444,7 @@ h2.script {
             <stop offset="0" stop-color="#1f7a64" stop-opacity=".9"/><stop offset="1" stop-color="#0b2e26" stop-opacity="0"/>
           </radialGradient>
         </defs>
-        <path d="M40 590 V250 C40 150 130 88 200 50 C270 88 360 150 360 250 V590 Z" fill="url(#archGlow)"/>
+        <path d="M40 590 V250 C40 150 130 88 200 50 C270 88 360 150 360 250 V590 Z" fill="url(#archGlow)" opacity=".35"/>
         <path d="M40 590 V250 C40 150 130 88 200 50 C270 88 360 150 360 250 V590" fill="none" stroke="url(#goldGrad)" stroke-width="3"/>
         <path d="M54 590 V254 C54 162 138 104 200 68 C262 104 346 162 346 254 V590" fill="none" stroke="#d4a94f" stroke-width="1" opacity=".7"/>
         <path d="M30 590 V246 C30 140 124 74 200 34 C276 74 370 140 370 246 V590" fill="none" stroke="#d4a94f" stroke-width="2.2" stroke-dasharray="0 9" stroke-linecap="round"/>
@@ -781,6 +806,7 @@ h2.script {
     if (opened) return; opened = true;
     startMusic();
     env.classList.add("open");
+    document.getElementById("heroPhoto").classList.add("zoom");
     const r = document.getElementById("seal").getBoundingClientRect();
     shower(r.left + r.width / 2, r.top + r.height / 2, 60);
     setTimeout(() => { env.classList.add("leave"); document.body.classList.remove("locked"); petalsOn = true; }, reduce ? 50 : 2000);
